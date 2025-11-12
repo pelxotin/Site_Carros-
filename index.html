@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoPrime | Marketplace Inteligente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <svg class="brand__logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+          <path d="M8 12L16 8L24 12V20C24 22.2091 22.2091 24 20 24H12C9.79086 24 8 22.2091 8 20V12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 16L16 14L20 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 14V20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2563eb"/>
+              <stop offset="1" stop-color="#9333ea"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="brand__text">
+          <span class="brand__logo">AutoPrime</span>
+          <span class="brand__tagline">Seu carro, sua próxima história</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-link active" data-target="vitrine">
+          Vitrine
+        </button>
+        <button class="nav-link" data-target="cadastro">
+          Anunciar
+        </button>
+        <button class="nav-link" data-target="gestao">
+          Gestão
+        </button>
+        <button class="nav-link" data-target="perfil">
+          Perfil
+        </button>
+        <button class="nav-link" data-target="blog">
+          Blog
+        </button>
+      </nav>
+      <div class="topbar__actions">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          data-theme="light"
+          aria-label="Alternar tema"
+        >
+          <span class="theme-toggle__icon theme-toggle__icon--sun">☀️</span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon">🌙</span>
+          <span class="theme-toggle__label">Tema</span>
+        </button>
+        <button class="ghost-btn" id="loginBtn">Entrar</button>
+        <button class="primary-btn" id="signupBtn">Criar conta</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="screen screen--active" data-screen="vitrine">
+        <div class="hero">
+          <div>
+            <h1>Seu Carro dos Sonhos Está Aqui! </h1>
+            <p>
+              <strong>Mais de 2.500 veículos</strong> prontos para você! Encontre o carro perfeito 
+              com <strong>preços incríveis</strong> e <strong>garantia de qualidade</strong>. 
+              Compra segura, entrega rápida e <strong>o melhor atendimento</strong> do mercado.
+            </p>
+            <div class="hero__cta">
+              <button class="primary-btn primary-btn--lg" onclick="document.querySelector('[data-target=\'vitrine\']').click()">
+                Ver Carros Agora
+              </button>
+              <button class="ghost-btn ghost-btn--lg" onclick="document.querySelector('[data-target=\'cadastro\']').click()">
+                Anunciar Meu Carro
+              </button>
+            </div>
+            <div class="hero__stats">
+              <div>
+                <span>2.536+</span>
+                <small>Carros disponíveis</small>
+              </div>
+              <div>
+                <span>94%</span>
+                <small>Avaliação 5 estrelas</small>
+              </div>
+              <div>
+                <span>72h</span>
+                <small>Venda garantida</small>
+              </div>
+            </div>
+          </div>
+          <div class="hero__media">
+            <div class="hero__carousel" id="heroCarousel">
+              <div class="hero__carousel-slide hero__carousel-slide--active">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=800&fit=crop&q=80" alt="Carro esportivo premium" loading="eager">
+              </div>
+              <div class="hero__carousel-slide">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=800&fit=crop&q=80" alt="SUV moderno" loading="lazy">
+              </div>
+              <div class="hero__carousel-slide">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&h=800&fit=crop&q=80" alt="Carro de luxo" loading="lazy">
+              </div>
+              <div class="hero__carousel-slide">
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8be0c19?w=1200&h=800&fit=crop&q=80" alt="Veículo elétrico" loading="lazy">
+              </div>
+              <div class="hero__carousel-slide">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop&q=80" alt="Carro esportivo" loading="lazy">
+              </div>
+            </div>
+            <div class="hero__carousel-indicators" id="heroCarouselIndicators"></div>
+            <div class="hero__carousel-controls">
+              <button class="hero__carousel-btn hero__carousel-btn--prev" id="heroCarouselPrev" aria-label="Imagem anterior">‹</button>
+              <button class="hero__carousel-btn hero__carousel-btn--next" id="heroCarouselNext" aria-label="Próxima imagem">›</button>
+            </div>
+            <div class="hero__media-overlay"></div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <aside class="filters">
+            <div class="filters__header">
+              <h2>Filtros avançados</h2>
+              <button class="ghost-btn ghost-btn--sm" id="clearFilters">
+                Limpar tudo
+              </button>
+            </div>
+            <form id="filterForm">
+              <label class="field">
+                <span>Marca</span>
+                <select name="brand" id="filterBrand">
+                  <option value="">Todas</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Modelo</span>
+                <input
+                  type="text"
+                  name="model"
+                  id="filterModel"
+                  list="filterModelSuggestions"
+                  placeholder="Selecione um modelo"
+                  autocomplete="off"
+                />
+                <datalist id="filterModelSuggestions"></datalist>
+              </label>
+
+              <div class="field field--inline">
+                <label>
+                  <span>Ano mínimo</span>
+                  <input
+                    type="number"
+                    name="yearMin"
+                    id="filterYearMin"
+                    min="1990"
+                    max="2026"
+                    value="2015"
+                  />
+                </label>
+                <label>
+                  <span>Ano máximo</span>
+                  <input
+                    type="number"
+                    name="yearMax"
+                    id="filterYearMax"
+                    min="1990"
+                    max="2026"
+                    value="2025"
+                  />
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Faixa de preço (R$)</span>
+                <div class="range-group">
+                  <input
+                    type="range"
+                    id="filterPrice"
+                    name="price"
+                    min="20000"
+                    max="300000"
+                    step="5000"
+                    value="150000"
+                  />
+                  <output id="filterPriceValue">Até R$ 150.000</output>
+                </div>
+              </label>
+
+              <div class="field field--inline">
+                <label>
+                  <span>Câmbio</span>
+                  <select name="transmission" id="filterTransmission">
+                    <option value="">Todos</option>
+                    <option value="Automático">Automático</option>
+                    <option value="Manual">Manual</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Combustível</span>
+                  <select name="fuel" id="filterFuel">
+                    <option value="">Todos</option>
+                    <option value="Flex">Flex</option>
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Híbrido">Híbrido</option>
+                    <option value="Elétrico">Elétrico</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Somente certificadas</span>
+                <div class="toggle">
+                  <input type="checkbox" id="filterCertified" />
+                  <span data-on="Sim" data-off="Não"></span>
+                </div>
+              </label>
+            </form>
+          </aside>
+
+          <section class="inventory">
+            <header class="inventory__header">
+              <div>
+                <h2>Carros disponíveis</h2>
+                <p id="inventoryCount">14 veículos encontrados</p>
+              </div>
+              <div class="inventory__controls">
+                <div class="view-toggle">
+                  <button class="view-toggle__btn view-toggle__btn--active" id="viewGrid" data-view="grid" aria-label="Visualização em grade">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <rect x="2" y="2" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                      <rect x="12" y="2" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                      <rect x="2" y="12" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                      <rect x="12" y="12" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                  </button>
+                  <button class="view-toggle__btn" id="viewList" data-view="list" aria-label="Visualização em lista">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <rect x="2" y="3" width="16" height="2" rx="1" fill="currentColor"/>
+                      <rect x="2" y="9" width="16" height="2" rx="1" fill="currentColor"/>
+                      <rect x="2" y="15" width="16" height="2" rx="1" fill="currentColor"/>
+                    </svg>
+                  </button>
+                </div>
+                <select id="sortSelect" class="sort-select">
+                  <option value="recommended">Recomendados</option>
+                  <option value="priceAsc">Preço: menor para maior</option>
+                  <option value="priceDesc">Preço: maior para menor</option>
+                  <option value="yearDesc">Ano: mais novo primeiro</option>
+                  <option value="mileageAsc">Menor quilometragem</option>
+                </select>
+              </div>
+            </header>
+            <div class="inventory__feedback" id="inventoryFeedback" hidden></div>
+            <div class="inventory__grid" id="inventoryGrid" aria-live="polite"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="cadastro">
+        <div class="section-header">
+          <div>
+            <h1>Anuncie seu veículo</h1>
+            <p>
+              Complete os dados abaixo para colocar seu carro em destaque na
+              nossa vitrine. O processo leva menos de 5 minutos e você recebe
+              acompanhamento personalizado.
+            </p>
+          </div>
+          <div class="section-header__badge">
+            <span>+32%</span>
+            <small>
+              Mais chances de venda rápida para anúncios completos com fotos em
+              alta qualidade.
+            </small>
+          </div>
+        </div>
+
+        <form id="listingForm" class="card form-card">
+          <fieldset>
+            <legend>Informações principais</legend>
+            <div class="grid grid--2">
+              <label class="field">
+                <span>Marca *</span>
+                <input type="text" name="brand" required />
+              </label>
+              <label class="field">
+                <span>Modelo *</span>
+                <input type="text" name="model" required />
+              </label>
+            </div>
+            <div class="grid grid--3">
+              <label class="field">
+                <span>Ano *</span>
+                <input
+                  type="number"
+                  name="year"
+                  min="1990"
+                  max="2025"
+                  required
+                />
+              </label>
+              <label class="field">
+                <span>Quilometragem *</span>
+                <input
+                  type="number"
+                  name="mileage"
+                  min="0"
+                  step="1000"
+                  required
+                />
+              </label>
+              <label class="field">
+                <span>Preço desejado (R$) *</span>
+                <input type="number" name="price" min="0" required />
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Especificações técnicas</legend>
+            <div class="grid grid--3">
+              <label class="field">
+                <span>Câmbio *</span>
+                <select name="transmission" required>
+                  <option value="">Selecione</option>
+                  <option value="Automático">Automático</option>
+                  <option value="Manual">Manual</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Combustível *</span>
+                <select name="fuel" required>
+                  <option value="">Selecione</option>
+                  <option value="Flex">Flex</option>
+                  <option value="Gasolina">Gasolina</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="Híbrido">Híbrido</option>
+                  <option value="Elétrico">Elétrico</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Versão</span>
+                <input
+                  type="text"
+                  name="trim"
+                  placeholder="Ex: Limited, Premier, GT Line"
+                />
+              </label>
+            </div>
+            <label class="field">
+              <span>Observações gerais</span>
+              <textarea
+                name="description"
+                rows="4"
+                placeholder="Conte um pouco sobre o estado do veículo, revisões, acessórios..."
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Mídia</legend>
+            <label class="field">
+              <span>Fotos do veículo (até 10 imagens)</span>
+              <input
+                type="file"
+                name="photos"
+                id="listingPhotos"
+                accept="image/*"
+                multiple
+                max="10"
+              />
+            </label>
+            <div class="photo-grid" id="photoPreview"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Contato do anunciante</legend>
+            <div class="grid grid--3">
+              <label class="field">
+                <span>Nome completo *</span>
+                <input type="text" name="ownerName" required />
+              </label>
+              <label class="field">
+                <span>E-mail *</span>
+                <input type="email" name="ownerEmail" required />
+              </label>
+              <label class="field">
+                <span>Telefone *</span>
+                <input type="tel" name="ownerPhone" required />
+              </label>
+            </div>
+          </fieldset>
+
+          <footer class="form-card__footer">
+            <label class="form-card__agree">
+              <input type="checkbox" required />
+              <span>
+                Li e aceito os termos de anúncio e confirmo a veracidade das
+                informações.
+              </span>
+            </label>
+            <button type="submit" class="primary-btn primary-btn--lg">
+              Publicar anúncio
+            </button>
+          </footer>
+        </form>
+
+        <div class="success-banner" id="listingSuccess" hidden>
+          <strong>Sucesso!</strong>
+          Seu anúncio está em análise e entrará na vitrine em instantes.
+        </div>
+      </section>
+
+      <section class="screen" data-screen="gestao">
+        <div class="section-header">
+          <div>
+            <h1>Gestão e Devolução</h1>
+            <p>
+              Acompanhe seus pedidos, agende test-drives e, se necessário,
+              inicie um processo de devolução dentro do prazo de 7 dias corridos
+              após a entrega.
+            </p>
+          </div>
+          <div class="section-header__badge">
+            <span>7 dias</span>
+            <small>Política de devolução inteligente AutoPrime</small>
+          </div>
+        </div>
+
+        <div class="grid grid--gestao">
+          <section class="card timeline">
+            <div class="card__header">
+              <h2>Pedidos ativos</h2>
+              <span class="status status--in-progress">Em andamento</span>
+            </div>
+            <ul class="timeline__list" id="ordersTimeline">
+              <li class="timeline__item">
+                <div class="timeline__dot"></div>
+                <div>
+                  <h3>Entrega confirmada</h3>
+                  <p>
+                    Kia Sportage 2022 • Entregue em
+                    <strong>08/11/2025</strong>
+                  </p>
+                  <small>Você tem até 15/11/2025 para solicitar devolução.</small>
+                </div>
+              </li>
+              <li class="timeline__item">
+                <div class="timeline__dot timeline__dot--muted"></div>
+                <div>
+                  <h3>Pagamento aprovado</h3>
+                  <p>
+                    Kia Sportage 2022 • Pagamento confirmado via TED em
+                    <strong>04/11/2025</strong>
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <form id="returnForm" class="inline-form">
+              <label class="field">
+                <span>Deseja iniciar devolução?</span>
+                <select name="orderId" required>
+                  <option value="">Selecione o pedido</option>
+                  <option value="AP-9341">AP-9341 • Sportage 2022</option>
+                  <option value="AP-7829">AP-7829 • Compass 2021</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Motivo</span>
+                <textarea
+                  name="reason"
+                  rows="3"
+                  placeholder="Descreva detalhadamente o motivo da devolução"
+                  required
+                ></textarea>
+              </label>
+              <button type="submit" class="primary-btn">Solicitar devolução</button>
+            </form>
+            <div class="alert" id="returnAlert" hidden></div>
+          </section>
+
+          <section class="card scheduler">
+            <div class="card__header">
+              <h2>Agendamento de test-drive</h2>
+              <span class="status status--available">Vagas abertas</span>
+            </div>
+            <form id="testDriveForm" class="inline-form">
+              <label class="field">
+                <span>Escolha o veículo</span>
+                <select name="vehicle" required>
+                  <option value="">Selecione</option>
+                  <option value="BMW X4 2023">BMW X4 2023</option>
+                  <option value="Audi Q3 2022">Audi Q3 2022</option>
+                  <option value="Volvo XC60 2021">Volvo XC60 2021</option>
+                  <option value="BYD Yuan Plus 2024">BYD Yuan Plus 2024</option>
+                </select>
+              </label>
+              <div class="grid grid--2">
+                <label class="field">
+                  <span>Data</span>
+                  <input type="date" name="date" required />
+                </label>
+                <label class="field">
+                  <span>Horário</span>
+                  <input type="time" name="time" required />
+                </label>
+              </div>
+              <label class="field">
+                <span>Observações</span>
+                <textarea
+                  name="notes"
+                  rows="2"
+                  placeholder="Preferências, acompanhantes, necessidades especiais..."
+                ></textarea>
+              </label>
+              <button type="submit" class="primary-btn">Agendar test-drive</button>
+            </form>
+
+            <div class="scheduler__confirmation" id="testDriveConfirmation" hidden>
+              <strong>Test-drive confirmado!</strong>
+              <p id="testDriveDetails"></p>
+            </div>
+
+            <div class="scheduler__list">
+              <h3>Seus próximos agendamentos</h3>
+              <ul id="testDriveList">
+                <li>
+                  <span class="badge">12/11</span>
+                  <div>
+                    <strong>Mercedes GLA 200</strong>
+                    <small>12/11/2025 às 10:00 | Unidade JK Iguatemi</small>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="perfil">
+        <div class="section-header">
+          <div>
+            <h1>Meu Perfil & Garagem</h1>
+            <p>
+              Gerencie suas preferências, acompanhe seus veículos salvos e
+              receba recomendações personalizadas com base no seu estilo de
+              direção.
+            </p>
+          </div>
+          <button class="ghost-btn ghost-btn--pill">
+            Atualizar preferências
+          </button>
+        </div>
+
+        <div class="grid grid--perfil">
+          <section class="card profile">
+            <div class="profile__header">
+              <div class="profile__avatar">
+                <span class="profile__avatar-initials" id="profileInitials">U</span>
+              </div>
+              <div>
+                <h2 id="profileName">Usuário</h2>
+                <p id="profileInfo">Faça login para ver seu perfil</p>
+                <div class="profile__badges" id="profileBadges">
+                  <span class="badge">Visitante</span>
+                </div>
+              </div>
+            </div>
+            <div class="profile__stats">
+              <div>
+                <strong>08</strong>
+                <small>Veículos salvos</small>
+              </div>
+              <div>
+                <strong>03</strong>
+                <small>Test-drives</small>
+              </div>
+              <div>
+                <strong>02</strong>
+                <small>Compras concluídas</small>
+              </div>
+            </div>
+
+            <h3>Preferências de busca</h3>
+            <ul class="profile__prefs">
+              <li><strong>Estilo:</strong> SUVs premium, elétricos urbanos</li>
+              <li><strong>Orçamento:</strong> Até R$ 280.000</li>
+              <li><strong>Prioridades:</strong> Segurança, conectividade, pós-venda</li>
+            </ul>
+          </section>
+
+          <section class="card garage">
+            <div class="card__header">
+              <h2>Minha Garagem</h2>
+              <span class="status status--garage">Atualizada</span>
+            </div>
+            <div id="garageList" class="garage__list">
+              <!-- Carros salvos aparecerão aqui -->
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="blog">
+        <div class="section-header">
+          <div>
+            <h1>Blog AutoPrime</h1>
+            <p>
+              Dicas, notícias e guias completos sobre o mundo automotivo. 
+              Tudo que você precisa saber para tomar a melhor decisão na compra do seu veículo.
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-grid" id="blogGrid">
+          <article class="blog-card">
+            <div class="blog-card__image">
+              <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=400&fit=crop&auto=format" alt="Como escolher o carro ideal">
+            </div>
+            <div class="blog-card__content">
+              <span class="blog-card__category">Guia de Compra</span>
+              <h2>Como escolher o carro ideal para você</h2>
+              <p>
+                Descubra os principais fatores a considerar na hora de comprar um carro: 
+                orçamento, uso diário, consumo de combustível e muito mais.
+              </p>
+              <div class="blog-card__meta">
+                <span>📅 15 de Janeiro, 2024</span>
+                <span>⏱️ 5 min de leitura</span>
+              </div>
+              <button class="ghost-btn">Ler mais</button>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card__image">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=400&fit=crop&auto=format" alt="Carros elétricos">
+            </div>
+            <div class="blog-card__content">
+              <span class="blog-card__category">Tendências</span>
+              <h2>Carros elétricos: vale a pena investir?</h2>
+              <p>
+                Análise completa sobre veículos elétricos: custos, benefícios ambientais, 
+                autonomia e infraestrutura de recarga no Brasil.
+              </p>
+              <div class="blog-card__meta">
+                <span>📅 12 de Janeiro, 2024</span>
+                <span>⏱️ 7 min de leitura</span>
+              </div>
+              <button class="ghost-btn">Ler mais</button>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card__image">
+              <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=400&fit=crop&auto=format" alt="Manutenção preventiva">
+            </div>
+            <div class="blog-card__content">
+              <span class="blog-card__category">Manutenção</span>
+              <h2>Manutenção preventiva: economize milhares</h2>
+              <p>
+                Aprenda como a manutenção preventiva pode evitar gastos desnecessários 
+                e aumentar a vida útil do seu veículo.
+              </p>
+              <div class="blog-card__meta">
+                <span>📅 10 de Janeiro, 2024</span>
+                <span>⏱️ 6 min de leitura</span>
+              </div>
+              <button class="ghost-btn">Ler mais</button>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card__image">
+              <img src="https://images.unsplash.com/photo-1549317661-bd32c8be0c19?w=800&h=400&fit=crop&auto=format" alt="Financiamento">
+            </div>
+            <div class="blog-card__content">
+              <span class="blog-card__category">Finanças</span>
+              <h2>Guia completo de financiamento de veículos</h2>
+              <p>
+                Entenda as melhores opções de financiamento, taxas de juros, 
+                documentação necessária e como negociar as melhores condições.
+              </p>
+              <div class="blog-card__meta">
+                <span>📅 8 de Janeiro, 2024</span>
+                <span>⏱️ 8 min de leitura</span>
+              </div>
+              <button class="ghost-btn">Ler mais</button>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card__image">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop&auto=format" alt="Segurança veicular">
+            </div>
+            <div class="blog-card__content">
+              <span class="blog-card__category">Segurança</span>
+              <h2>Segurança veicular: o que verificar antes de comprar</h2>
+              <p>
+                Checklist essencial de segurança: airbags, freios ABS, sistemas 
+                de assistência e certificações de segurança.
+              </p>
+              <div class="blog-card__meta">
+                <span>📅 5 de Janeiro, 2024</span>
+                <span>⏱️ 5 min de leitura</span>
+              </div>
+              <button class="ghost-btn">Ler mais</button>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card__image">
+              <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=400&fit=crop&auto=format" alt="Dicas de venda">
+            </div>
+            <div class="blog-card__content">
+              <span class="blog-card__category">Vendas</span>
+              <h2>10 dicas para vender seu carro rapidamente</h2>
+              <p>
+                Estratégias comprovadas para vender seu veículo no melhor preço 
+                e no menor tempo possível.
+              </p>
+              <div class="blog-card__meta">
+                <span>📅 3 de Janeiro, 2024</span>
+                <span>⏱️ 6 min de leitura</span>
+              </div>
+              <button class="ghost-btn">Ler mais</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal de Detalhes do Carro -->
+    <div class="vehicle-details-modal" id="vehicleDetailsModal" hidden>
+      <div class="vehicle-details-modal__overlay"></div>
+      <div class="vehicle-details-modal__content">
+        <button class="vehicle-details-modal__close" id="vehicleDetailsClose" aria-label="Fechar detalhes">
+          ✕
+        </button>
+        <div class="vehicle-details" id="vehicleDetailsContent">
+          <!-- Conteúdo será preenchido dinamicamente -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Galeria de Fotos -->
+    <div class="gallery-modal" id="galleryModal" hidden>
+      <div class="gallery-modal__overlay"></div>
+      <div class="gallery-modal__content">
+        <button class="gallery-modal__close" id="galleryClose" aria-label="Fechar galeria">
+          ✕
+        </button>
+        <button class="gallery-modal__nav gallery-modal__nav--prev" id="galleryPrev" aria-label="Foto anterior">
+          ‹
+        </button>
+        <button class="gallery-modal__nav gallery-modal__nav--next" id="galleryNext" aria-label="Próxima foto">
+          ›
+        </button>
+        <div class="gallery-modal__main">
+          <img id="galleryMainImage" src="" alt="Imagem do veículo" />
+          <div class="gallery-modal__info">
+            <h3 id="galleryVehicleName"></h3>
+            <p id="galleryImageCounter"></p>
+          </div>
+        </div>
+        <div class="gallery-modal__thumbs" id="galleryThumbs"></div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>
+        © 2025 AutoPrime Marketplace • Experiência premium na compra e venda de
+        veículos com garantia e transparência.
+      </p>
+      <div class="site-footer__links">
+        <a href="#">Ajuda</a>
+        <a href="#">Termos</a>
+        <a href="#">Privacidade</a>
+      </div>
+    </footer>
+
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <!-- Modal de Login -->
+    <div class="modal" id="loginModal" hidden>
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <button class="modal__close" id="closeLoginModal" aria-label="Fechar">×</button>
+        <form id="loginForm" class="auth-form">
+          <h2>Bem-vindo de volta!</h2>
+          <p style="color: var(--text-subtle); margin-bottom: 1.5rem;">Entre na sua conta para continuar</p>
+          <label class="field">
+            <span>E-mail</span>
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label class="field">
+            <span>Senha</span>
+            <input type="password" name="password" required autocomplete="current-password" />
+          </label>
+          <button type="submit" class="primary-btn primary-btn--lg" style="width: 100%; margin-top: 0.5rem;">
+            Entrar
+          </button>
+          <p style="text-align: center; margin-top: 1rem; color: var(--text-subtle); font-size: 0.9rem;">
+            Não tem uma conta? 
+            <button type="button" class="link-btn" id="switchToSignup" style="background: none; border: none; color: var(--accent-strong); cursor: pointer; text-decoration: underline;">
+              Criar conta
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div class="modal" id="signupModal" hidden>
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <button class="modal__close" id="closeSignupModal" aria-label="Fechar">×</button>
+        <form id="signupForm" class="auth-form">
+          <h2>Crie sua conta</h2>
+          <p style="color: var(--text-subtle); margin-bottom: 1.5rem;">Preencha os dados abaixo para começar</p>
+          <label class="field">
+            <span>Nome completo</span>
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label class="field">
+            <span>E-mail</span>
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label class="field">
+            <span>Telefone</span>
+            <input type="tel" name="phone" required autocomplete="tel" />
+          </label>
+          <label class="field">
+            <span>Senha</span>
+            <input type="password" name="password" required autocomplete="new-password" minlength="6" />
+          </label>
+          <label class="field">
+            <span>Confirmar senha</span>
+            <input type="password" name="confirmPassword" required autocomplete="new-password" minlength="6" />
+          </label>
+          <button type="submit" class="primary-btn primary-btn--lg" style="width: 100%; margin-top: 0.5rem;">
+            Criar conta
+          </button>
+          <p style="text-align: center; margin-top: 1rem; color: var(--text-subtle); font-size: 0.9rem;">
+            Já tem uma conta? 
+            <button type="button" class="link-btn" id="switchToLogin" style="background: none; border: none; color: var(--accent-strong); cursor: pointer; text-decoration: underline;">
+              Fazer login
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
+
