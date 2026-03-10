@@ -8,5 +8,5 @@ Site estático para marketplace de carros com integração à API FIPE.
 - `styles.css` - Estilos do site
 - `script.js` - Lógica JavaScript e integração com API
 
-
+# Atividade Realizada em 2025
 
